@@ -9,6 +9,8 @@ import scala.io.Source
 object ZioMain extends ZIOAppDefault {
 
   def run: ZIO[Has[Console], Throwable, Unit] = fileReader
+  val data = ZIO.succeed(42)
+
   val flatMapApp: ZIO[Has[Console], IOException, Unit] = for {
     _ <- Console.printLine("Hello! What is your name?")
     n <- Console.readLine
